@@ -2,14 +2,13 @@ package de.diakonie.miguide;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 
 public class DataManager {
 
 
-    private StartActivity mainactivity;
+    private LanguageSelectorActivity mainactivity;
 
-    public DataManager(StartActivity mainactivity) {
+    public DataManager(LanguageSelectorActivity mainactivity) {
         this.mainactivity = mainactivity;
     }
 
