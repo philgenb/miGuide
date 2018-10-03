@@ -1,2 +1,2 @@
-# miGuide
-Stadtführer für neuzugezogene ohne Deutschkentnisse innerhalb Pforzheim
+# miGuide - Theoprax
+Stadtführer-App für neuzugezogene ohne Deutschkentnisse innerhalb Pforzheim
