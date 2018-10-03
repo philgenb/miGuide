@@ -1,2 +1,2 @@
 # miGuide
-Stadtführer für Neuzugezogene ohne Deutschkentnisse innerhalb Pforzheim
+Stadtführer für neuzugezogene ohne Deutschkentnisse innerhalb Pforzheim
