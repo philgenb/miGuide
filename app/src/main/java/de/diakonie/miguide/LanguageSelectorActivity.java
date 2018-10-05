@@ -1,5 +1,6 @@
 package de.diakonie.miguide;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -41,6 +42,8 @@ public class LanguageSelectorActivity extends AppCompatActivity {
             public void onClick(View view) {
                 setLocale("en");
                 Log.i("locale", dm.getStringValue("locale"));
+                Intent intent = new Intent(LanguageSelectorActivity.this, CategoryActivity.class);
+                startActivity(intent);
             }
         });
 
