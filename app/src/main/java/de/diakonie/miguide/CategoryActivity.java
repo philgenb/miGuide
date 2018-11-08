@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 
 import java.util.ArrayList;
 
@@ -24,6 +25,8 @@ public class CategoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
 
+        registerToolBar();
+
         loadArrays();
 
         recyclerview = (RecyclerView) findViewById(R.id.recyclerview);
@@ -36,12 +39,20 @@ public class CategoryActivity extends AppCompatActivity {
 
     private void loadArrays() {
         if(categorys.isEmpty()) {
-            categorys.add("test");
-            categorys.add("test2");
+            categorys.add("Lebensmittel");
+            categorys.add("Kleidung");
+            categorys.add("Freizeit");
         }
         if(itemimages.isEmpty()) {
-            itemimages.add(R.drawable.ic_logo_miguide);
-            itemimages.add(R.drawable.ic_logo_miguide);
+            itemimages.add(R.drawable.ic_authorities);
+            itemimages.add(R.drawable.ic_hospital);
+            itemimages.add(R.drawable.ic_tree);
         }
+    }
+
+    public void registerToolBar() {
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("Kategorien");
+        setSupportActionBar(toolbar);
     }
 }

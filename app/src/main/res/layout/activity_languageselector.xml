@@ -1,46 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LanguageSelectorActivity">
 
-    <LinearLayout
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
+
+    <Button
+        android:id="@+id/DButton"
+        android:layout_width="250dp"
+        android:layout_height="45dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="205dp"
+        android:background="@color/ic_launcher_background"
+        android:text="@string/German"
+        android:textColor="@android:color/white" />
+
+
+    <Button
+        android:id="@+id/EButton"
+        android:layout_width="250dp"
+        android:layout_height="45dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="270dp"
+        android:background="@android:color/holo_orange_light"
+        android:text="@string/English"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:layout_height="164dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="170dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        android:layout_height="wrap_content"
+        android:text="@string/test"
+        android:visibility="invisible" />
 
-        <Button
-            android:id="@+id/DButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/German" />
+    <TextView
+        android:id="@+id/chooselanguage"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="145dp"
+        android:text="Choose your language! Wähle deine Sprache aus"
+        android:textSize="18dp"
+        android:gravity="center" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="18dp" />
-
-        <Button
-            android:id="@+id/EButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/English" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/test" />
-    </LinearLayout>
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>
