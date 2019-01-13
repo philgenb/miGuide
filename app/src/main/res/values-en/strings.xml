@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">miGuide</string>
+    <string name="app_name">CleverBuy</string>
     <string name="German">German</string>
     <string name="English">English</string>
     <string name="test">TestE</string>
+    <string name="categories">Categories</string>
+
+    <string name="Lebensmittel">Groceries</string>
+    <string name="Kleidung">Clothes</string>
+    <string name="Freizeit">Leisure</string>
 </resources>

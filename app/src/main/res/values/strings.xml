@@ -1,6 +1,11 @@
 <resources>
-    <string name="app_name">miGuide</string>
+    <string name="app_name">CleverBuy</string>
     <string name="German">Deutsch</string>
     <string name="English">Englisch</string>
     <string name="test">TestD</string>
+    <string name="categories">Kategorien</string>
+
+    <string name="Lebensmittel">Lebensmittel</string>
+    <string name="Kleidung">Kleidung</string>
+    <string name="Freizeit">Freizeit</string>
 </resources>

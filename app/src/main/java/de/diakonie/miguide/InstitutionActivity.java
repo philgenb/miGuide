@@ -13,8 +13,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class CategoryActivity extends AppCompatActivity {
-
+public class InstitutionActivity extends AppCompatActivity {
 
     public ArrayList<String> categorys = new ArrayList<>();
     public ArrayList<Integer> itemimages = new ArrayList<>();
@@ -30,9 +29,9 @@ public class CategoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
 
-        registerToolBar();
 
-        loadArrays();
+
+        getIncomingIntent();
 
         recyclerview = (RecyclerView) findViewById(R.id.recyclerview);
         recyclerLayoutManager = new LinearLayoutManager(this);
@@ -42,29 +41,28 @@ public class CategoryActivity extends AppCompatActivity {
         recyclerview.setAdapter(recyclerAdapter);
     }
 
-    private void loadArrays() {
+    private void getIncomingIntent() {
+        if(getIntent().hasExtra("category")) {
+            String category = getIntent().getStringExtra("category");
+            registerToolBar(category);
+            loadArrays(category);
+        }
+    }
+
+    private void loadArrays(String category) {
         if(categorys.isEmpty()) {
-            categorys.add("Lebensmittel");
-            categorys.add("Bekleidung");
-            categorys.add("Freizeit");
-            categorys.add("Kind & Baby");
-            categorys.add("Möbel");
-            categorys.add("Haushalt");
-            categorys.add("Diverses");
+            categorys.add("Einrichtung 1");
+            categorys.add("Einrichtung 2");
+            categorys.add("Einrichtung 3");
         }
         if(itemimages.isEmpty()) {
-            itemimages.add(R.drawable.ic_einkaufen);
-
-            itemimages.add(R.drawable.ic_bekleidung);
-            itemimages.add(R.drawable.ic_freizeit);
             itemimages.add(R.drawable.ic_logo_miguide);
-            itemimages.add(R.drawable.ic_mobel);
             itemimages.add(R.drawable.ic_logo_miguide);
             itemimages.add(R.drawable.ic_logo_miguide);
         }
     }
     //setzt die Actionbar
-    public void registerToolBar() {
+    public void registerToolBar(String category) {
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.categories);
         setSupportActionBar(toolbar);
@@ -82,7 +80,7 @@ public class CategoryActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId() == R.id.item1) {
-            Intent intent = new Intent(CategoryActivity.this, LanguageSelectorActivity.class);
+            Intent intent = new Intent(InstitutionActivity.this, LanguageSelectorActivity.class);
             startActivity(intent);
         }
 
@@ -91,9 +89,12 @@ public class CategoryActivity extends AppCompatActivity {
     }
 
 
-    //Blockiert die Zurücktaste im Kategorienmenü
+    //Zurücktaste -> Öffne Kategorienmenü
     @Override
     public void onBackPressed() {
-        Toast.makeText(getApplicationContext(), "exit", Toast.LENGTH_SHORT);
+        Intent intent = new Intent(InstitutionActivity.this, CategoryActivity.class);
+        startActivity(intent);
+        overridePendingTransition(0, 0); //Keine Animation
     }
 }
+

@@ -36,8 +36,7 @@ public class LanguageSelectorActivity extends AppCompatActivity {
             public void onClick(View view) {
                 setLocale("de");
                 Log.i("locale", dm.getStringValue("locale"));
-                Intent intent = new Intent(LanguageSelectorActivity.this, CategoryActivity.class);
-                startActivity(intent);
+                openCategoryMenu();
             }
         });
 
@@ -47,11 +46,15 @@ public class LanguageSelectorActivity extends AppCompatActivity {
             public void onClick(View view) {
                 setLocale("en");
                 Log.i("locale", dm.getStringValue("locale"));
-                Intent intent = new Intent(LanguageSelectorActivity.this, CategoryActivity.class);
-                startActivity(intent);
+                openCategoryMenu();
             }
         });
 
+    }
+
+    private void openCategoryMenu() {
+        Intent intent = new Intent(LanguageSelectorActivity.this, CategoryActivity.class);
+        startActivity(intent);
     }
 
     public void setLocale(String lang) {

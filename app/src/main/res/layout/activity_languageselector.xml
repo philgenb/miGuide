@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LanguageSelectorActivity">
+    tools:context=".LanguageSelectorActivity"
+
+    android:background="@drawable/ic_bg_language_v2">
 
     <include
         android:id="@+id/toolbar"
@@ -12,24 +14,26 @@
 
     <Button
         android:id="@+id/DButton"
-        android:layout_width="250dp"
+        android:layout_width="150dp"
         android:layout_height="45dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="205dp"
         android:background="@color/ic_launcher_background"
         android:text="@string/German"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
 
 
     <Button
         android:id="@+id/EButton"
-        android:layout_width="250dp"
+        android:layout_width="150dp"
         android:layout_height="45dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="270dp"
         android:background="@android:color/holo_orange_light"
         android:text="@string/English"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView"
@@ -43,9 +47,11 @@
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="145dp"
-        android:text="Choose your language! Wähle deine Sprache aus"
-        android:textSize="18dp"
-        android:gravity="center" />
+        android:layout_marginTop="130dp"
+        android:gravity="center"
+        android:text="Choose your language Wähle deine Sprache aus"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
 </RelativeLayout>

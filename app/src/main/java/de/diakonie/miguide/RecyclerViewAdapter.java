@@ -1,8 +1,10 @@
 package de.diakonie.miguide;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,7 +31,19 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_listitem, parent, false);
-        ViewHolder holder = new ViewHolder(view);
+        final ViewHolder holder = new ViewHolder(view);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() { //Klick auf Viewholder -> Aufruf von der Liste der Insitutionen der jeweiligen Kategorie
+            @Override
+
+            public void onClick(View view) {
+                String clickcategory = holder.itemcategory.getText().toString();
+                Intent intent = new Intent(context, InstitutionActivity.class);
+                intent.putExtra("category", clickcategory);
+                context.startActivity(intent);
+            }
+        });
+
         return holder;
     }
 
@@ -39,12 +53,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.itemcategory.setText(categorys.get(position));
         holder.image.setImageResource(itemimages.get(position));
 
+        /* KlickListener - nicht empfohlen
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+                Log.i("VIEW", "test");
             }
         });
+        */
         
     }
 
