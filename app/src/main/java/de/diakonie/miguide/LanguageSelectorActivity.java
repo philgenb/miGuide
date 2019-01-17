@@ -13,7 +13,7 @@ import java.util.Locale;
 
 public class LanguageSelectorActivity extends AppCompatActivity {
 
-    DataManager dm;
+    private DataManager dm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

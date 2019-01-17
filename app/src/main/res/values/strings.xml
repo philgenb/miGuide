@@ -6,6 +6,10 @@
     <string name="categories">Kategorien</string>
 
     <string name="Lebensmittel">Lebensmittel</string>
-    <string name="Kleidung">Kleidung</string>
+    <string name="Bekleidung">Kleidung</string>
     <string name="Freizeit">Freizeit</string>
+    <string name="Kind">Kind &amp; Baby</string>
+    <string name="Möbel">Möbel</string>
+    <string name="Haushalt">Haushalt</string>
+    <string name="Diverses">Diverses</string>
 </resources>

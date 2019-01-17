@@ -15,15 +15,44 @@ import java.util.ArrayList;
 
 public class CategoryActivity extends AppCompatActivity {
 
+    public static class Category {
+        int nameID;
+        int imageID;
+    }
 
-    public ArrayList<String> categorys = new ArrayList<>();
-    public ArrayList<Integer> itemimages = new ArrayList<>();
+    public static final ArrayList<Category> CATEGORIES = new ArrayList<>();
+    static {
+        loadArrays();
+    }
 
     //----------------
 
-    RecyclerView recyclerview;
-    RecyclerView.Adapter recyclerAdapter;
-    RecyclerView.LayoutManager recyclerLayoutManager;
+    private RecyclerView recyclerview;
+    private RecyclerView.Adapter recyclerAdapter;
+    private RecyclerView.LayoutManager recyclerLayoutManager;
+
+    public CategoryActivity() {
+    }
+
+    private static void loadArrays() {
+        int imagePlaceholder = R.drawable.ic_logo_miguide;
+
+        addCategory(R.string.Lebensmittel, R.drawable.ic_einkaufen);
+        addCategory(R.string.Bekleidung, R.drawable.ic_bekleidung);
+        addCategory(R.string.Freizeit, R.drawable.ic_freizeit);
+        addCategory(R.string.Kind, imagePlaceholder);
+        addCategory(R.string.Möbel, R.drawable.ic_mobel);
+        addCategory(R.string.Haushalt, imagePlaceholder);
+        addCategory(R.string.Diverses, imagePlaceholder);
+    }
+
+    private static void addCategory(int nameID, int imageID) {
+        Category category = new Category();
+        category.nameID = nameID;
+        category.imageID = imageID;
+
+        CATEGORIES.add(category);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,45 +61,22 @@ public class CategoryActivity extends AppCompatActivity {
 
         registerToolBar();
 
-        loadArrays();
-
         recyclerview = (RecyclerView) findViewById(R.id.recyclerview);
         recyclerLayoutManager = new LinearLayoutManager(this);
         recyclerview.setLayoutManager(recyclerLayoutManager);
 
-        recyclerAdapter = new RecyclerViewAdapter(categorys, itemimages, getBaseContext());
+        recyclerAdapter = new CategoryViewAdapter(getBaseContext());
         recyclerview.setAdapter(recyclerAdapter);
     }
 
-    private void loadArrays() {
-        if(categorys.isEmpty()) {
-            categorys.add("Lebensmittel");
-            categorys.add("Bekleidung");
-            categorys.add("Freizeit");
-            categorys.add("Kind & Baby");
-            categorys.add("Möbel");
-            categorys.add("Haushalt");
-            categorys.add("Diverses");
-        }
-        if(itemimages.isEmpty()) {
-            itemimages.add(R.drawable.ic_einkaufen);
-
-            itemimages.add(R.drawable.ic_bekleidung);
-            itemimages.add(R.drawable.ic_freizeit);
-            itemimages.add(R.drawable.ic_logo_miguide);
-            itemimages.add(R.drawable.ic_mobel);
-            itemimages.add(R.drawable.ic_logo_miguide);
-            itemimages.add(R.drawable.ic_logo_miguide);
-        }
-    }
-    //setzt die Actionbar
+    // Setzt die Actionbar
     public void registerToolBar() {
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.categories);
         setSupportActionBar(toolbar);
     }
 
-    //fügt der Actionbar das Menü hinzu
+    // Fügt der Actionbar das Menü hinzu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -78,14 +84,13 @@ public class CategoryActivity extends AppCompatActivity {
         return true;
     }
 
-    //Actionbar - Wenn Optionen ausgewählt -> Sprachauswahlfenster
+    // Actionbar - Wenn Optionen ausgewählt -> Sprachauswahlfenster
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId() == R.id.item1) {
             Intent intent = new Intent(CategoryActivity.this, LanguageSelectorActivity.class);
             startActivity(intent);
         }
-
 
         return super.onOptionsItemSelected(item);
     }

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,19 +11,20 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
+import de.diakonie.miguide.InstitutionActivity.Institution;
 
-    private ArrayList<String> categorys = new ArrayList<>();
-    private ArrayList<Integer> itemimages = new ArrayList<>();
-    private Context context;
+public class InstitutionViewAdapter extends RecyclerView.Adapter<InstitutionViewAdapter.ViewHolder> {
 
-    public RecyclerViewAdapter(ArrayList<String> categorys, ArrayList<Integer> itemimages, Context context) {
-        this.categorys = categorys;
-        this.itemimages = itemimages;
+    private final Context context;
+
+    private final ArrayList<Institution> institutions;
+
+    public InstitutionViewAdapter(Context context, ArrayList<Institution> institutions) {
         this.context = context;
+
+        this.institutions = institutions;
     }
 
     @NonNull
@@ -33,14 +33,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_listitem, parent, false);
         final ViewHolder holder = new ViewHolder(view);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() { //Klick auf Viewholder -> Aufruf von der Liste der Insitutionen der jeweiligen Kategorie
+        // Klick auf Viewholder -> Aufruf von der Liste der Institutionen der jeweiligen Kategorie
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
-
             public void onClick(View view) {
-                String clickcategory = holder.itemcategory.getText().toString();
-                Intent intent = new Intent(context, InstitutionActivity.class);
-                intent.putExtra("category", clickcategory);
-                context.startActivity(intent);
+                // TODO
             }
         });
 
@@ -49,27 +46,22 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+        holder.position = position;
 
-        holder.itemcategory.setText(categorys.get(position));
-        holder.image.setImageResource(itemimages.get(position));
+        Institution category = institutions.get(position);
 
-        /* KlickListener - nicht empfohlen
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.i("VIEW", "test");
-            }
-        });
-        */
-        
+        holder.itemcategory.setText(category.name);
+        holder.image.setImageResource(category.imageID);
     }
 
     @Override
     public int getItemCount() {
-        return categorys.size();
+        return institutions.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+
+        int position;
 
         ImageView image;
         TextView itemcategory;
@@ -77,6 +69,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         public ViewHolder(View itemView) {
             super(itemView);
+
             image = itemView.findViewById(R.id.itemimage);
             itemcategory = itemView.findViewById(R.id.itemcategory);
             itemlayout = itemView.findViewById(R.id.itemlayout);
