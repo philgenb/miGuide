@@ -3,6 +3,7 @@ package de.diakonie.miguide;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -60,10 +61,15 @@ public class CategoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_category);
 
         registerToolBar();
+        CSVReader.init(getBaseContext()); //Edited 18 Uhr
 
         recyclerview = (RecyclerView) findViewById(R.id.recyclerview);
         recyclerLayoutManager = new LinearLayoutManager(this);
         recyclerview.setLayoutManager(recyclerLayoutManager);
+
+        //Dekoration
+        DividerItemDecoration itemDecoration = new DividerItemDecoration(this, LinearLayoutManager.VERTICAL);
+        recyclerview.addItemDecoration(itemDecoration);
 
         recyclerAdapter = new CategoryViewAdapter(getBaseContext());
         recyclerview.setAdapter(recyclerAdapter);

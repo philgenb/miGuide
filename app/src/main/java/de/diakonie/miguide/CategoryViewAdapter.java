@@ -3,6 +3,7 @@ package de.diakonie.miguide;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,7 +31,7 @@ public class CategoryViewAdapter extends RecyclerView.Adapter<CategoryViewAdapte
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_listitem, parent, false);
         final ViewHolder holder = new ViewHolder(view);
 
-        // Klick auf Viewholder -> Aufruf von der Liste der Institutionen der jeweiligen Kategorie
+        // Klick auf Viewholder -> Aufruf von der Liste der institutionen der jeweiligen Kategorie
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -45,6 +46,7 @@ public class CategoryViewAdapter extends RecyclerView.Adapter<CategoryViewAdapte
                 context.startActivity(intent);
             }
         });
+
 
         return holder;
     }

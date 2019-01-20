@@ -1,8 +1,11 @@
 package de.diakonie.miguide;
 
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -12,31 +15,36 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 import de.diakonie.miguide.CategoryActivity.Category;
 import static de.diakonie.miguide.CategoryActivity.CATEGORIES;
 
+import static de.diakonie.miguide.CSVReader.KNOWN_INSTITUTIONS;
+
 public class InstitutionActivity extends AppCompatActivity {
 
-    static class Institution {
+    static class InstitutionInfo {
         String name;
         int imageID;
     }
 
-    public ArrayList<Institution> institutions = new ArrayList<>();
+    public ArrayList<InstitutionInfo> institutions = new ArrayList<>();
+/*
     {
         for (int i = 0; i < 10; i++) {
             addInstitution("Einrichtung " + i, R.drawable.ic_logo_miguide);
         }
     }
-
+*/
     public void addInstitution(String name, int imageID) {
-        Institution institution = new Institution();
+        InstitutionInfo institution = new InstitutionInfo();
         institution.name = name;
         institution.imageID = imageID;
 
         institutions.add(institution);
     }
+
 
     //----------------
 
@@ -51,9 +59,14 @@ public class InstitutionActivity extends AppCompatActivity {
 
         parseIncomingIntent();
 
+
         recyclerview = (RecyclerView) findViewById(R.id.recyclerview);
         recyclerLayoutManager = new LinearLayoutManager(this);
         recyclerview.setLayoutManager(recyclerLayoutManager);
+
+        //Dekoration
+        DividerItemDecoration itemDecoration = new DividerItemDecoration(this, LinearLayoutManager.VERTICAL);
+        recyclerview.addItemDecoration(itemDecoration);
 
         recyclerAdapter = new InstitutionViewAdapter(getBaseContext(), institutions);
         recyclerview.setAdapter(recyclerAdapter);
@@ -73,10 +86,34 @@ public class InstitutionActivity extends AppCompatActivity {
     private void loadArrays(int categoryID) {
         Category category = CATEGORIES.get(categoryID);
 
+
+        //ArrayList<Institution> foundInstitutions = new ArrayList<Institution>();
+
+        for (Institution institution : KNOWN_INSTITUTIONS) {
+            if (institution.Kategorie.equals(getStringinGerman(category.nameID))) {
+                addInstitution(institution.Name , R.drawable.ic_logo_miguide);
+            }
+        }
+        /*
         institutions.clear();
         for (int i = 0; i < 10; i++) {
             addInstitution(getString(category.nameID) + " " + i, R.drawable.ic_logo_miguide);
         }
+        */
+    }
+
+    public String getStringinGerman(int StringID) {
+        Resources res = getResources();
+        Configuration conf = res.getConfiguration();
+        Locale savedLocale = conf.locale;
+        conf.locale = Locale.GERMAN;
+        res.updateConfiguration(conf, null);
+
+        String str = res.getString(StringID);
+
+        conf.locale = savedLocale;
+        res.updateConfiguration(conf, null);
+        return str;
     }
 
     // Setzt die Actionbar
@@ -114,7 +151,7 @@ public class InstitutionActivity extends AppCompatActivity {
     public void onBackPressed() {
         Intent intent = new Intent(InstitutionActivity.this, CategoryActivity.class);
         startActivity(intent);
-        overridePendingTransition(0, 0); //Keine Animation
+        //overridePendingTransition(R.anim.lefttoright, 0); //Keine Animation
     }
 }
 

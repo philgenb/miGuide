@@ -1,7 +1,6 @@
 package de.diakonie.miguide;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,15 +12,15 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import de.diakonie.miguide.InstitutionActivity.Institution;
+import de.diakonie.miguide.InstitutionActivity.InstitutionInfo;
 
 public class InstitutionViewAdapter extends RecyclerView.Adapter<InstitutionViewAdapter.ViewHolder> {
 
     private final Context context;
 
-    private final ArrayList<Institution> institutions;
+    private final ArrayList<InstitutionInfo> institutions;
 
-    public InstitutionViewAdapter(Context context, ArrayList<Institution> institutions) {
+    public InstitutionViewAdapter(Context context, ArrayList<InstitutionInfo> institutions) {
         this.context = context;
 
         this.institutions = institutions;
@@ -33,7 +32,7 @@ public class InstitutionViewAdapter extends RecyclerView.Adapter<InstitutionView
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_listitem, parent, false);
         final ViewHolder holder = new ViewHolder(view);
 
-        // Klick auf Viewholder -> Aufruf von der Liste der Institutionen der jeweiligen Kategorie
+        // Klick auf Viewholder -> Aufruf von der Liste der institutionen der jeweiligen Kategorie
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -48,7 +47,7 @@ public class InstitutionViewAdapter extends RecyclerView.Adapter<InstitutionView
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         holder.position = position;
 
-        Institution category = institutions.get(position);
+        InstitutionInfo category = institutions.get(position);
 
         holder.itemcategory.setText(category.name);
         holder.image.setImageResource(category.imageID);
