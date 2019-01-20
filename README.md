@@ -1,2 +1,2 @@
-# miGuide - Theoprax
-Stadtführer-App für neuzugezogene ohne Deutschkentnisse innerhalb Pforzheim
+# CleverBuy - Theoprax
+CleverBuy enstand im Rahmen einer schulischen Seminararbeit in Kooperation mit der Diakonie und unterstüzt einkommenschwache Haushalte im Enzkreis.
