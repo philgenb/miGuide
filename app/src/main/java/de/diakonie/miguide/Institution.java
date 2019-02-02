@@ -2,17 +2,25 @@ package de.diakonie.miguide;
 
 public class Institution {
 
+    public int ID;
     public String Lage;
     public String Kategorie;
     public String Name;
     public String PLZ;
     public String Ort;
     public String Straße;
+    public String Anschrift;
     public String HausNR;
     public String Preis;
     public String Öffnungszeiten;
     public String Beschreibung;
     public String Anforderungen;
+
+    //Lage;Kategorie;Name;PLZ;Ort;Straße;Anschrift;Haus Nr.;Preis;Öffnungszeiten;Beschreibung;Anforderungen
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
 
     public void setLage(String Lage) {
         this.Lage = Lage;
@@ -36,6 +44,10 @@ public class Institution {
 
     public void setHausNR (String HausNR) {
         this.HausNR = HausNR;
+    }
+
+    public void setAnschrift (String Anschrift) {
+        this.Anschrift = Anschrift;
     }
 
     public void setPreis(String Preis) {

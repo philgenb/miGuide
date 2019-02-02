@@ -58,6 +58,7 @@ public class CSVReader {
             BufferedReader bufferedReader = new BufferedReader(inputreader);
 
             String line = null;
+            int IDcounter = 1;
             while ((line = readLine(bufferedReader)) != null) {
                 String[] splitted = line.split(CSVSeperator);
                 if (splitted.length < 11) {
@@ -71,21 +72,24 @@ public class CSVReader {
                 String PLZ = splitted[3];
                 String Ort = splitted[4];
                 String Straße = splitted[5];
-                String HausNR = splitted[6];
-                String Preis = splitted[7];
-                String Öffnungszeiten = splitted[8];
-                String Beschreibung = splitted[9];
-                String Anforderungen = splitted[10];
+                String Anschrift = splitted[6];
+                String HausNR = splitted[7];
+                String Preis = splitted[8];
+                String Öffnungszeiten = splitted[9];
+                String Beschreibung = splitted[10];
+                String Anforderungen = splitted[11];
 
                 Log.i("CSV", Kategorie + " " + Name);
 
                 Institution institution = new Institution();
+                institution.setID(IDcounter);
                 institution.Lage = Lage;
                 institution.Kategorie = Kategorie;
                 institution.Name = Name;
                 institution.PLZ = PLZ;
                 institution.Ort = Ort;
                 institution.Straße = Straße;
+                institution.Anschrift = Anschrift;
                 institution.HausNR = HausNR;
                 institution.Preis = Preis;
                 institution.Öffnungszeiten = Öffnungszeiten;
@@ -93,8 +97,8 @@ public class CSVReader {
                 institution.Anforderungen = Anforderungen;
 
                 KNOWN_INSTITUTIONS.add(institution);
-
-                //Lage, Kategorie, Name, PLZ, Ort, Straße, Anschrift, Haus Nr., Preis, Öffnungszeiten, Beschreibung, Anforderungen
+                IDcounter++;
+                //Lage;Art der Einrichtung;Name;PLZ;Ort;Straße;Anschrift;Haus Nr.;Preis;Öffnungszeiten;Beschreibung;Anforderungen
 
             }
         } catch (Exception e) {

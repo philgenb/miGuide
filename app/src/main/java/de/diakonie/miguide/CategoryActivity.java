@@ -105,6 +105,6 @@ public class CategoryActivity extends AppCompatActivity {
     //Blockiert die Zurücktaste im Kategorienmenü
     @Override
     public void onBackPressed() {
-        Toast.makeText(getApplicationContext(), "exit", Toast.LENGTH_SHORT);
+        //Toast.makeText(getApplicationContext(), "exit", Toast.LENGTH_SHORT);
     }
 }

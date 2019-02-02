@@ -29,7 +29,7 @@ public class InstitutionActivity extends AppCompatActivity {
         int imageID;
     }
 
-    public ArrayList<InstitutionInfo> institutions = new ArrayList<>();
+    public static ArrayList<InstitutionInfo> institutions = new ArrayList<>();
 /*
     {
         for (int i = 0; i < 10; i++) {
@@ -88,9 +88,9 @@ public class InstitutionActivity extends AppCompatActivity {
 
 
         //ArrayList<Institution> foundInstitutions = new ArrayList<Institution>();
-
+        institutions.clear();
         for (Institution institution : KNOWN_INSTITUTIONS) {
-            if (institution.Kategorie.equals(getStringinGerman(category.nameID))) {
+            if (institution.Kategorie.contains(getStringinGerman(category.nameID))) {
                 addInstitution(institution.Name , R.drawable.ic_logo_miguide);
             }
         }
