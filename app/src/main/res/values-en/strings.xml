@@ -18,5 +18,6 @@
     <string name="openingtime">Openingtimes</string>
     <string name="address">Address</string>
     <string name="restrictions">Restrictions</string>
+    <string name="price">Price</string>
 
 </resources>

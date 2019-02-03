@@ -66,6 +66,10 @@ public class CSVReader {
                     continue;
                 }
 
+                for (int i = 0; i < splitted.length; i++) {
+                    splitted[i] = splitted[i].trim();
+                }
+
                 String Lage = splitted[0];
                 String Kategorie = splitted[1];
                 String Name = splitted[2];

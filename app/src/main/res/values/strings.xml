@@ -17,5 +17,6 @@
     <string name="openingtime">Öffnungszeiten</string>
     <string name="address">Anschrift</string>
     <string name="restrictions">Anforderungen</string>
+    <string name="price">Preis</string>
 
 </resources>

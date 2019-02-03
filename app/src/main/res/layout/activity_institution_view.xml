@@ -134,6 +134,40 @@
 
     </LinearLayout>
 
+    <View
+        android:id="@+id/thirdline"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/Anforderungen"
+        android:background="#D3D3D3"
+        />
+
+    <LinearLayout
+        android:id="@+id/Preis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/Anforderungen"
+        android:layout_marginTop="7.5dp"
+        android:layout_marginBottom="7.5dp">
+
+        <ImageView
+            android:id="@+id/ImagePreis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/ic_institution_price" />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@string/price"
+            android:textSize="17sp" />
+
+    </LinearLayout>
+
 
 
     <ImageButton

@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import static de.diakonie.miguide.InstitutionActivity.institutions;
@@ -22,6 +23,11 @@ public class InstitutionView extends AppCompatActivity {
     private TextView openingtimes;
     private TextView address;
     private TextView restrictions;
+
+    //only shown if existing
+    private TextView price;
+    private ImageView Imageprice;
+    //----------
 
     private ImageButton navigationbutton;
 
@@ -42,6 +48,10 @@ public class InstitutionView extends AppCompatActivity {
         openingtimes = findViewById(R.id.openingtimes);
         address = findViewById(R.id.address);
         restrictions = findViewById(R.id.restrictions);
+
+        price = findViewById(R.id.price);
+        Imageprice = findViewById(R.id.ImagePreis);
+
 
         navigationbutton = findViewById(R.id.navigation);
         navigationbutton.setOnClickListener(new View.OnClickListener() {
@@ -69,7 +79,7 @@ public class InstitutionView extends AppCompatActivity {
         updateOpeningTimes(currentInstitution.Öffnungszeiten);
         updateAddress(currentInstitution.Anschrift);
         updateRestrictions(currentInstitution.Anforderungen);
-        Log.i("test", "-" + currentInstitution.Anforderungen + "-");
+        updatePrice(currentInstitution.Preis);
     }
 
     private void updateHeadline(String headlineText) {
@@ -87,14 +97,31 @@ public class InstitutionView extends AppCompatActivity {
         openingtimes.setText(getResources().getString(R.string.openingtime) + ": " + Openingtimes);
     }
 
-    private void updateRestrictions(String restrictionText) {
-        //TODO Bugfix
-        if(restrictionText.equals("") || restrictionText.isEmpty() || restrictionText == null) {
-            restrictions.setText(getResources().getString(R.string.restrictions) + ":   -");
-            return;
+    private void updatePrice(String Preis) {
+        if(Preis.isEmpty()) {
+            hidePrice();
+        } else {
+            showPrice();
+            price.setText(getResources().getString(R.string.price) + ": " + Preis);
         }
+    }
 
-        restrictions.setText(getResources().getString(R.string.restrictions) + ": " + restrictionText);
+    private void hidePrice() {
+        price.setVisibility(View.INVISIBLE);
+        Imageprice.setVisibility(View.INVISIBLE);
+    }
+
+    public void showPrice() {
+        price.setVisibility(View.VISIBLE);
+        Imageprice.setVisibility(View.VISIBLE);
+    }
+
+    private void updateRestrictions(String restrictionText) {
+        if(restrictionText.trim().isEmpty() || restrictionText == null) {
+            restrictions.setText(getResources().getString(R.string.restrictions) + ":  —");
+        } else {
+            restrictions.setText(getResources().getString(R.string.restrictions) + ": " + restrictionText);
+        }
     }
 
     private Institution getInstitutionbyName(String name) {
