@@ -12,6 +12,71 @@
         android:id="@+id/toolbar"
         layout="@layout/toolbar"/>
 
+
+    <TextView
+        android:id="@+id/chooselanguage"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="110dp"
+        android:gravity="center"
+        android:text="Select your Language!"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/DButton"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/chooselanguage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:background="#30FFFFFF"
+        android:drawableStart="@drawable/ic_germany"
+        android:drawablePadding="-15sp"
+        android:paddingStart="20sp"
+        android:text="@string/German"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/EButton"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/DButton"
+        android:layout_centerHorizontal="true"
+        android:background="#30FFFFFF"
+        android:drawableStart="@drawable/ic_english"
+        android:drawablePadding="-15sp"
+        android:paddingStart="20sp"
+        android:text="@string/English"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/AButton"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/EButton"
+        android:layout_centerHorizontal="true"
+        android:background="#30FFFFFF"
+        android:drawablePadding="-15sp"
+        android:text="Coming Soon!"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+    <!--
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/DButton"
+        android:layout_alignTop="@id/DButton"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_germany" />
+
     <Button
         android:id="@+id/DButton"
         android:layout_width="150dp"
@@ -22,7 +87,6 @@
         android:text="@string/German"
         android:textColor="@android:color/white"
         android:textStyle="bold" />
-
 
     <Button
         android:id="@+id/EButton"
@@ -42,16 +106,6 @@
         android:text="@string/test"
         android:visibility="invisible" />
 
-    <TextView
-        android:id="@+id/chooselanguage"
-        android:layout_width="280dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="130dp"
-        android:gravity="center"
-        android:text="Choose your language Wähle deine Sprache aus"
-        android:textColor="@android:color/white"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+        -->
 
 </RelativeLayout>
