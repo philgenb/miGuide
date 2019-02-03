@@ -11,6 +11,8 @@
         android:id="@+id/toolbar"
         layout="@layout/toolbar"/>
 
+
+
     <TextView
         android:id="@+id/headline"
         android:layout_width="wrap_content"
@@ -22,56 +24,107 @@
         android:textSize="24sp"
         android:textStyle="bold" />
 
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/headline"
+        android:text="Beschreibung"
+        android:textSize="17sp" />
+
     <LinearLayout
-        android:id="@+id/LinearText"
+        android:id="@+id/openingtime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/headline"
-        android:divider="?android:dividerVertical"
-        android:showDividers="middle"
-        android:orientation="vertical">
+        android:orientation="horizontal"
+        android:layout_below="@id/description"
+        android:layout_marginTop="10dp">
 
-        <TextView
-            android:id="@+id/description"
+        <ImageView
+            android:id="@+id/ImageOpeningTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/openingtimes"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
-            android:text="Beschreibung"
-            android:textSize="17sp"
-            android:textStyle="bold" />
+            android:src="@drawable/ic_institution_clock" />
 
         <TextView
             android:id="@+id/openingtimes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:text="Öffnungszeiten: "
-            android:textSize="17sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/address"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:text="Anschrift: "
-            android:textSize="17sp"
-            android:textStyle="bold" />
+            android:layout_marginStart="10dp"
+            android:text="@string/openingtime"
+            android:textSize="17sp" />
 
     </LinearLayout>
 
+
+
+
+    <LinearLayout
+        android:id="@+id/anschrift"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/openingtime"
+        android:layout_marginTop="10dp">
+
+        <ImageView
+            android:id="@+id/ImagePlace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/ic_institution_place" />
+
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@string/address"
+            android:textSize="17sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Anforderungen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/anschrift"
+        android:layout_marginTop="10dp">
+
+        <ImageView
+            android:id="@+id/ImageAnforderungen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/ic_institution_restriction" />
+
+        <TextView
+            android:id="@+id/restrictions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@string/restrictions"
+            android:textSize="17sp" />
+
+    </LinearLayout>
+
+
+
     <ImageButton
         android:id="@+id/navigation"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/LinearText"
-        android:src="@drawable/ic_navigation_button"
-        style="@style/Widget.AppCompat.Button.Borderless"/>
-
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/ic_navigation_button" />
 
 
 </RelativeLayout>

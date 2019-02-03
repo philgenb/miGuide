@@ -12,4 +12,9 @@
     <string name="Möbel">Möbel</string>
     <string name="Haushalt">Haushalt</string>
     <string name="Diverses">Diverses</string>
+
+    <string name="openingtime">Öffnungszeiten:</string>
+    <string name="address">Anschrift:</string>
+    <string name="restrictions">Anforderungen:</string>
+
 </resources>

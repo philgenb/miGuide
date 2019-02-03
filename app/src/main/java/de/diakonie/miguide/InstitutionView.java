@@ -21,6 +21,7 @@ public class InstitutionView extends AppCompatActivity {
     private TextView description;
     private TextView openingtimes;
     private TextView address;
+    private TextView restrictions;
 
     private ImageButton navigationbutton;
 
@@ -40,6 +41,7 @@ public class InstitutionView extends AppCompatActivity {
         description = findViewById(R.id.description);
         openingtimes = findViewById(R.id.openingtimes);
         address = findViewById(R.id.address);
+        restrictions = findViewById(R.id.restrictions);
 
         navigationbutton = findViewById(R.id.navigation);
         navigationbutton.setOnClickListener(new View.OnClickListener() {
@@ -66,6 +68,7 @@ public class InstitutionView extends AppCompatActivity {
         updateDescription(currentInstitution.Beschreibung);
         updateOpeningTimes(currentInstitution.Öffnungszeiten);
         updateAddress(currentInstitution.Anschrift);
+        updateRestrictions(currentInstitution.Anforderungen);
     }
 
     private void updateHeadline(String headlineText) {
@@ -81,6 +84,15 @@ public class InstitutionView extends AppCompatActivity {
 
     private void updateOpeningTimes(String Openingtimes) {
         openingtimes.setText("Öffnungszeiten: " + Openingtimes);
+    }
+
+    private void updateRestrictions(String restrictionText) {
+        if(restrictionText.isEmpty()) {
+            restrictions.setText("Anforderungen:   —");
+            return;
+        }
+
+        restrictions.setText("Anforderungen: " + restrictionText);
     }
 
     private Institution getInstitutionbyName(String name) {

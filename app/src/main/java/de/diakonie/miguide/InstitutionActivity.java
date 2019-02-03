@@ -147,11 +147,13 @@ public class InstitutionActivity extends AppCompatActivity {
 
 
     //Zurücktaste -> Öffne Kategorienmenü
+    /*
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(InstitutionActivity.this, CategoryActivity.class);
         startActivity(intent);
         //overridePendingTransition(R.anim.lefttoright, 0); //Keine Animation
     }
+    */
 }
 
