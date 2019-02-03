@@ -29,11 +29,14 @@
         android:id="@+id/description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/headline"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:layout_below="@id/headline"
         android:text="Beschreibung"
+        android:textAlignment="textStart"
         android:textSize="17sp" />
+
+
 
     <LinearLayout
         android:id="@+id/openingtime"
@@ -41,7 +44,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_below="@id/description"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp">
 
         <ImageView
             android:id="@+id/ImageOpeningTime"
@@ -62,6 +66,12 @@
     </LinearLayout>
 
 
+    <View
+        android:id="@+id/firstline"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/openingtime"
+        android:background="#D3D3D3"/>
 
 
     <LinearLayout
@@ -70,7 +80,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_below="@id/openingtime"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="7.5dp"
+        android:layout_marginBottom="7.5dp">
 
         <ImageView
             android:id="@+id/ImagePlace"
@@ -89,13 +100,22 @@
 
     </LinearLayout>
 
+    <View
+        android:id="@+id/secondline"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/anschrift"
+        android:background="#D3D3D3"
+        />
+
     <LinearLayout
         android:id="@+id/Anforderungen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_below="@id/anschrift"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="7.5dp"
+        android:layout_marginBottom="7.5dp">
 
         <ImageView
             android:id="@+id/ImageAnforderungen"
