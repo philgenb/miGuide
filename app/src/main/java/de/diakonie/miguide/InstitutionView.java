@@ -69,6 +69,7 @@ public class InstitutionView extends AppCompatActivity {
         updateOpeningTimes(currentInstitution.Öffnungszeiten);
         updateAddress(currentInstitution.Anschrift);
         updateRestrictions(currentInstitution.Anforderungen);
+        Log.i("test", "-" + currentInstitution.Anforderungen + "-");
     }
 
     private void updateHeadline(String headlineText) {
@@ -79,20 +80,21 @@ public class InstitutionView extends AppCompatActivity {
         description.setText(descriptionText);
     }
     private void updateAddress(String Address) {
-        address.setText("Anschrift: " + Address);
+        address.setText(getResources().getString(R.string.address) + ": " + Address);
     }
 
     private void updateOpeningTimes(String Openingtimes) {
-        openingtimes.setText("Öffnungszeiten: " + Openingtimes);
+        openingtimes.setText(getResources().getString(R.string.openingtime) + ": " + Openingtimes);
     }
 
     private void updateRestrictions(String restrictionText) {
-        if(restrictionText.isEmpty()) {
-            restrictions.setText("Anforderungen:   —");
+        //TODO Bugfix
+        if(restrictionText.equals("") || restrictionText.isEmpty() || restrictionText == null) {
+            restrictions.setText(getResources().getString(R.string.restrictions) + ":   -");
             return;
         }
 
-        restrictions.setText("Anforderungen: " + restrictionText);
+        restrictions.setText(getResources().getString(R.string.restrictions) + ": " + restrictionText);
     }
 
     private Institution getInstitutionbyName(String name) {

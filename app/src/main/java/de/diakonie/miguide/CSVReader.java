@@ -61,8 +61,8 @@ public class CSVReader {
             int IDcounter = 1;
             while ((line = readLine(bufferedReader)) != null) {
                 String[] splitted = line.split(CSVSeperator);
-                if (splitted.length < 11) {
-                    Log.w("CSV", "category.length < 11");
+                if (splitted.length < 12) {
+                    Log.w("CSV", "category.length < 12");
                     continue;
                 }
 

@@ -14,8 +14,8 @@
     <string name="Haushalt">Household</string>
     <string name="Diverses">Miscellaneous</string>
 
-    <string name="openingtime">openingtimes:</string>
-    <string name="address">address:</string>
-    <string name="restrictions">restrictions:</string>
+    <string name="openingtime">Openingtimes</string>
+    <string name="address">Address</string>
+    <string name="restrictions">Restrictions</string>
 
 </resources>
