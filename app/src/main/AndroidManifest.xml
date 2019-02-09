@@ -20,7 +20,8 @@
         </activity>
         <activity android:name=".CategoryActivity" />
         <activity android:name=".InstitutionActivity" />
-        <activity android:name=".InstitutionView"></activity>
+        <activity android:name=".InstitutionView" />
+        <activity android:name=".CreditsActivity"></activity>
     </application>
 
 </manifest>

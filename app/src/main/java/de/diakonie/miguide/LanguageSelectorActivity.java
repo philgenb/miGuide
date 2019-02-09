@@ -50,6 +50,15 @@ public class LanguageSelectorActivity extends AppCompatActivity {
             }
         });
 
+        Button CreditsButton = findViewById(R.id.creditsButton);
+        CreditsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LanguageSelectorActivity.this, CreditsActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void openCategoryMenu() {
