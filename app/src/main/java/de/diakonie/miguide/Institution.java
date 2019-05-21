@@ -13,8 +13,11 @@ public class Institution {
     public String HausNR;
     public String Preis;
     public String Öffnungszeiten;
-    public String Beschreibung;
+    public String BeschreibungD;
+    public String BeschreibungE;
+    public String BeschreibungA;
     public String Anforderungen;
+    public String ImagePath;
 
     //Lage;Kategorie;Name;PLZ;Ort;Straße;Anschrift;Haus Nr.;Preis;Öffnungszeiten;Beschreibung;Anforderungen
 
@@ -52,6 +55,10 @@ public class Institution {
 
     public void setPreis(String Preis) {
         this.Preis = Preis;
+    }
+
+    public void setImagePath(String ImagePath) {
+        this.ImagePath = ImagePath;
     }
 
 }

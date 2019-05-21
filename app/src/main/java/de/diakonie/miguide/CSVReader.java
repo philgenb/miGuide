@@ -53,7 +53,8 @@ public class CSVReader {
 
     private static void readFile(Context context) {
         try {
-            InputStream input = context.getResources().openRawResource(R.raw.institutionen);
+
+            InputStream input = context.getResources().openRawResource(R.raw.institutionendata2105);
             InputStreamReader inputreader = new InputStreamReader(input);
             BufferedReader bufferedReader = new BufferedReader(inputreader);
 
@@ -61,8 +62,8 @@ public class CSVReader {
             int IDcounter = 1;
             while ((line = readLine(bufferedReader)) != null) {
                 String[] splitted = line.split(CSVSeperator);
-                if (splitted.length < 12) {
-                    Log.w("CSV", "category.length < 12");
+                if (splitted.length < 15) {
+                    Log.w("CSV", "category.length < 15");
                     continue;
                 }
 
@@ -80,8 +81,11 @@ public class CSVReader {
                 String HausNR = splitted[7];
                 String Preis = splitted[8];
                 String Öffnungszeiten = splitted[9];
-                String Beschreibung = splitted[10];
-                String Anforderungen = splitted[11];
+                String BeschreibungD = splitted[10];
+                String BeschreibungE = splitted[11];
+                String BeschreibungA = splitted[12];
+                String Anforderungen = splitted[13];
+                String ImagePath = splitted[14];
 
                 Log.i("CSV", Kategorie + " " + Name);
 
@@ -97,12 +101,15 @@ public class CSVReader {
                 institution.HausNR = HausNR;
                 institution.Preis = Preis;
                 institution.Öffnungszeiten = Öffnungszeiten;
-                institution.Beschreibung = Beschreibung;
+                institution.BeschreibungD = BeschreibungD;
+                institution.BeschreibungE = BeschreibungE;
+                institution.BeschreibungA = BeschreibungA;
                 institution.Anforderungen = Anforderungen;
+                institution.ImagePath = ImagePath;
 
                 KNOWN_INSTITUTIONS.add(institution);
                 IDcounter++;
-                //Lage;Art der Einrichtung;Name;PLZ;Ort;Straße;Anschrift;Haus Nr.;Preis;Öffnungszeiten;Beschreibung;Anforderungen
+                //Lage;Art der Einrichtung;Name;PLZ;Ort;Straße;Anschrift;Haus Nr.;Preis;Öffnungszeiten;Beschreibung(D);Beschreibung(E);Beschreibung(A);Anforderungen;Imagepath
 
             }
         } catch (Exception e) {

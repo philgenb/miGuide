@@ -50,6 +50,16 @@ public class LanguageSelectorActivity extends AppCompatActivity {
             }
         });
 
+        Button AButton = findViewById(R.id.AButton);
+        AButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setLocale("ar");
+                Log.i("locale", dm.getStringValue("locale"));
+                openCategoryMenu();
+            }
+        });
+
         Button CreditsButton = findViewById(R.id.creditsButton);
         CreditsButton.setOnClickListener(new View.OnClickListener() {
             @Override

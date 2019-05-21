@@ -91,7 +91,7 @@ public class InstitutionActivity extends AppCompatActivity {
         institutions.clear();
         for (Institution institution : KNOWN_INSTITUTIONS) {
             if (institution.Kategorie.contains(getStringinGerman(category.nameID))) {
-                addInstitution(institution.Name , R.drawable.ic_logo_miguide);
+                addInstitution(institution.Name , R.drawable.bahnhof);
             }
         }
         /*

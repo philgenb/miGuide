@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CleverBuy</string>
+    <string name="German">German</string>
+    <string name="English">English</string>
+    <string name="Arabisch">Arabisch</string>
+    <string name="test">TestE</string>
+    <string name="categories">الفئات</string>
+
+    <string name="Lebensmittel">طعام</string>
+    <string name="Bekleidung">ملابس</string>
+    <string name="Freizeit">وقت الفراغ</string>
+    <string name="Kind">الطفل والطفل</string>
+    <string name="Möbel">أثاث</string>
+    <string name="Haushalt">منزلي</string>
+    <string name="Diverses">متنوع</string>
+
+    <string name="openingtime">مواعيد العمل</string>
+    <string name="address">عنوان</string>
+    <string name="restrictions">متطلبات</string>
+    <string name="price">السعر</string>
+
+</resources>

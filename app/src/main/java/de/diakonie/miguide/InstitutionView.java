@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.Layout;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
@@ -75,7 +76,7 @@ public class InstitutionView extends AppCompatActivity {
         this.currentInstitution = getInstitutionbyName(institutionName);
 
         updateHeadline(currentInstitution.Name);
-        updateDescription(currentInstitution.Beschreibung);
+        updateDescription(currentInstitution.BeschreibungD);
         updateOpeningTimes(currentInstitution.Öffnungszeiten);
         updateAddress(currentInstitution.Anschrift);
         updateRestrictions(currentInstitution.Anforderungen);
@@ -90,11 +91,13 @@ public class InstitutionView extends AppCompatActivity {
         description.setText(descriptionText);
     }
     private void updateAddress(String Address) {
-        address.setText(getResources().getString(R.string.address) + ": " + Address);
+        String adressPlaceholder = getResources().getString(R.string.address) + ": ";
+        address.setText(Address);
     }
 
     private void updateOpeningTimes(String Openingtimes) {
-        openingtimes.setText(getResources().getString(R.string.openingtime) + ": " + Openingtimes);
+        String openingtimePlaceholder = getResources().getString(R.string.openingtime) + ": ";
+        openingtimes.setText(Openingtimes);
     }
 
     private void updatePrice(String Preis) {
@@ -102,7 +105,8 @@ public class InstitutionView extends AppCompatActivity {
             hidePrice();
         } else {
             showPrice();
-            price.setText(getResources().getString(R.string.price) + ": " + Preis);
+            String pricePlacerholder = getResources().getString(R.string.price) + ": ";
+            price.setText(Preis);
         }
     }
 
@@ -117,10 +121,11 @@ public class InstitutionView extends AppCompatActivity {
     }
 
     private void updateRestrictions(String restrictionText) {
+        String retrictionPlacerholder = getResources().getString(R.string.restrictions) + ": ";
         if(restrictionText.trim().isEmpty() || restrictionText == null) {
-            restrictions.setText(getResources().getString(R.string.restrictions) + ":  —");
+            restrictions.setText("—");
         } else {
-            restrictions.setText(getResources().getString(R.string.restrictions) + ": " + restrictionText);
+            restrictions.setText(restrictionText);
         }
     }
 
@@ -132,6 +137,8 @@ public class InstitutionView extends AppCompatActivity {
         }
         return null;
     }
+
+
 
     // Setzt die Actionbar
     public void registerToolBar() {

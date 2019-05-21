@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".LanguageSelectorActivity"
 
-    android:background="@drawable/ic_bg_language_v2">
+    android:background="@drawable/bg_language_v3">
 
     <include
         android:id="@+id/toolbar"
@@ -61,25 +61,30 @@
         android:layout_below="@id/EButton"
         android:layout_centerHorizontal="true"
         android:background="#30FFFFFF"
+        android:drawableStart="@drawable/ic_arabic"
         android:drawablePadding="-15sp"
-        android:text="Coming Soon!"
+        android:paddingStart="20sp"
+        android:text="@string/Arabisch"
         android:textColor="#FFFFFF"
         android:textStyle="bold" />
 
     <Button
         android:id="@+id/creditsButton"
-        android:layout_width="125dp"
-        android:layout_height="30dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="0dp"
+
+        android:text="CREDITS"
+        android:visibility="invisible"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:layout_width="80dp"
+        android:layout_height="20dp"
         android:background="@drawable/style_button"
-        android:shadowColor="#A8A8A8"
+        android:layout_centerHorizontal="true"
+        android:shadowColor="#FFFFFF"
         android:shadowDx="0"
         android:shadowDy="0"
-        android:shadowRadius="5"
-        android:text="CREDITS"
-        android:textColor="@android:color/white" />
+        android:shadowRadius="0"
+        />
 
     <!--
 
