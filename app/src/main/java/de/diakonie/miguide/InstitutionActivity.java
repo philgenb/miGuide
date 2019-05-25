@@ -90,8 +90,10 @@ public class InstitutionActivity extends AppCompatActivity {
         //ArrayList<Institution> foundInstitutions = new ArrayList<Institution>();
         institutions.clear();
         for (Institution institution : KNOWN_INSTITUTIONS) {
+            //Log.i("InstitutionActivity - Compare Inst", "categoryName: " + institution.Kategorie + " GermanString: " + getStringinGerman(category.nameID));
+            Log.i("InstitutionActivity", "CategoryString: " + getResources().getString(category.nameID));
             if (institution.Kategorie.contains(getStringinGerman(category.nameID))) {
-                addInstitution(institution.Name , R.drawable.bahnhof);
+                addInstitution(institution.Name , R.drawable.ic_missing_image);
             }
         }
         /*

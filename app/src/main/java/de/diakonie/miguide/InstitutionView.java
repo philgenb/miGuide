@@ -2,15 +2,17 @@ package de.diakonie.miguide;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.text.Layout;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.Locale;
 
 import static de.diakonie.miguide.InstitutionActivity.institutions;
 import static de.diakonie.miguide.CSVReader.KNOWN_INSTITUTIONS;
@@ -44,6 +46,7 @@ public class InstitutionView extends AppCompatActivity {
     }
 
     private void registerUI() {
+        getLanguage();
         headline = findViewById(R.id.headline);
         description = findViewById(R.id.description);
         openingtimes = findViewById(R.id.openingtimes);
@@ -65,6 +68,10 @@ public class InstitutionView extends AppCompatActivity {
         });
     }
 
+    public Locale getLanguage() {
+        return getResources().getConfiguration().locale;
+    }
+
     private void parseIncomingIntent() {
         int institutionID = getIntent().getIntExtra("institutionID", -1);
         if (institutionID == -1) {
@@ -76,11 +83,24 @@ public class InstitutionView extends AppCompatActivity {
         this.currentInstitution = getInstitutionbyName(institutionName);
 
         updateHeadline(currentInstitution.Name);
-        updateDescription(currentInstitution.BeschreibungD);
+        loadDescription();
         updateOpeningTimes(currentInstitution.Öffnungszeiten);
         updateAddress(currentInstitution.Anschrift);
         updateRestrictions(currentInstitution.Anforderungen);
         updatePrice(currentInstitution.Preis);
+    }
+
+    public void loadDescription() {
+        String locale = getLanguage().toString();
+        Log.i("InstitutionView - Locale", "Locale: " + locale);
+        if(locale.equals("en")) {
+            Log.i("InstitutionView - Locale", "Locale EN");
+            updateDescription(currentInstitution.BeschreibungE);
+        } else if(locale.equals("ar")) {
+            updateDescription(currentInstitution.BeschreibungA);
+        } else {
+            updateDescription(currentInstitution.BeschreibungD);
+        }
     }
 
     private void updateHeadline(String headlineText) {

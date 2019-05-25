@@ -21,9 +21,9 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginLeft="17dp"
-        android:textColor="#555555"
         android:layout_toRightOf="@+id/itemimage"
         android:text="Kategorie"
+        android:textColor="#555555"
         android:textSize="25sp"
         android:textStyle="bold" />
 

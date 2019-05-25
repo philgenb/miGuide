@@ -36,7 +36,7 @@ public class CategoryActivity extends AppCompatActivity {
     }
 
     private static void loadArrays() {
-        int imagePlaceholder = R.drawable.ic_logo_miguide;
+        int imagePlaceholder = R.drawable.ic_missing_image;
 
         addCategory(R.string.Lebensmittel, R.drawable.ic_lebensmittel);
         addCategory(R.string.Bekleidung, R.drawable.ic_bekleidung);

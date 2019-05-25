@@ -87,7 +87,7 @@ public class CSVReader {
                 String Anforderungen = splitted[13];
                 String ImagePath = splitted[14];
 
-                Log.i("CSV", Kategorie + " " + Name);
+                Log.i("CSV", Kategorie + "; " + Name);
 
                 Institution institution = new Institution();
                 institution.setID(IDcounter);
