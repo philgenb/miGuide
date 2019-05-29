@@ -2,6 +2,7 @@ package de.diakonie.miguide;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.Image;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -15,6 +16,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import de.diakonie.miguide.InstitutionActivity.InstitutionInfo;
+
+import static de.diakonie.miguide.CSVReader.KNOWN_INSTITUTIONS;
+import static de.diakonie.miguide.InstitutionActivity.institutions;
 
 public class InstitutionViewAdapter extends RecyclerView.Adapter<InstitutionViewAdapter.ViewHolder> {
 
@@ -57,9 +61,43 @@ public class InstitutionViewAdapter extends RecyclerView.Adapter<InstitutionView
         holder.position = position;
 
         InstitutionInfo category = institutions.get(position);
-
         holder.itemcategory.setText(category.name);
-        holder.image.setImageResource(category.imageID);
+
+        int imgID = getPictureIDByInstitution(category.name);
+        if(imgID != -1 && imgID != 0) {
+            holder.image.setImageResource(imgID); //new
+        } else {
+            Log.e("Grabbing Picture", "imgID = - 1 - Categoryname " + category.name + " can't be found");
+            holder.image.setImageResource(category.imageID); //old
+        }
+
+
+        //holder.image.setImageResource(category.imageID); //old
+    }
+
+    private int getPictureIDByInstitution(String name) {
+        Institution currentInstitution = getInstitutionbyName(name);
+        if(currentInstitution != null) {
+            String ImagePath = currentInstitution.ImagePath;
+            Log.i("Grabbing Picture", "ImgPath: " + ImagePath);
+            if(!ImagePath.isEmpty()) {
+                int resID = context.getResources().getIdentifier(ImagePath, "drawable", context.getPackageName()); //BildID durch BildPfad
+                Log.i("Loading Picture", "ImgID: " + resID);
+                return resID;
+            }
+        } else {
+            Log.e("InstitutionList", "Error: institution with the name can't be found");
+        }
+        return -1;
+    }
+
+    private Institution getInstitutionbyName(String name) {
+        for (Institution institution : KNOWN_INSTITUTIONS) {
+            if(institution.Name.equals(name)) {
+                return institution;
+            }
+        }
+        return null;
     }
 
     @Override

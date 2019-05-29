@@ -20,9 +20,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="17dp"
-        android:layout_toRightOf="@+id/itemimage"
+        android:layout_marginStart="17dp"
+        android:layout_toEndOf="@+id/itemimage"
         android:text="Kategorie"
+        android:textDirection="anyRtl"
         android:textColor="#555555"
         android:textSize="25sp"
         android:textStyle="bold" />
