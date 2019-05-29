@@ -97,7 +97,11 @@ public class InstitutionView extends AppCompatActivity {
             Log.i("InstitutionView - Locale", "Locale EN");
             updateDescription(currentInstitution.BeschreibungE);
         } else if(locale.equals("ar")) {
-            updateDescription(currentInstitution.BeschreibungA);
+            if(!currentInstitution.BeschreibungA.isEmpty()) {
+                updateDescription(currentInstitution.BeschreibungA);
+            } else {
+                updateDescription(currentInstitution.BeschreibungE);
+            }
         } else {
             updateDescription(currentInstitution.BeschreibungD);
         }

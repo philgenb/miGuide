@@ -62,7 +62,6 @@
             android:id="@+id/ImageOpeningTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/openingtimes"
             android:layout_marginStart="10dp"
             android:src="@drawable/ic_institution_clock" />
 
@@ -71,6 +70,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:layout_marginEnd="20dp"
             android:text="@string/openingtime"
             android:textSize="15sp" />
 
@@ -103,9 +103,10 @@
 
         <TextView
             android:id="@+id/address"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:layout_marginEnd="20dp"
             android:text="@string/address"
             android:textSize="15sp" />
 
@@ -137,9 +138,10 @@
 
         <TextView
             android:id="@+id/restrictions"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:layout_marginEnd="20dp"
             android:text="@string/restrictions"
             android:textSize="15sp" />
 
@@ -171,9 +173,10 @@
 
         <TextView
             android:id="@+id/price"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:layout_marginEnd="20dp"
             android:text="@string/price"
             android:textSize="15sp" />
 
