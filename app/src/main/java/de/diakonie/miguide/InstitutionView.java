@@ -84,7 +84,8 @@ public class InstitutionView extends AppCompatActivity {
 
         updateHeadline(currentInstitution.Name);
         loadDescription();
-        updateOpeningTimes(currentInstitution.Öffnungszeiten);
+        loadOpeningTime();
+
         updateAddress(currentInstitution.Anschrift);
         updateRestrictions(currentInstitution.Anforderungen);
         updatePrice(currentInstitution.Preis);
@@ -104,6 +105,15 @@ public class InstitutionView extends AppCompatActivity {
             }
         } else {
             updateDescription(currentInstitution.BeschreibungD);
+        }
+    }
+
+    public void loadOpeningTime() {
+        String locale = getLanguage().toString();
+        if(locale.equals("en")) {
+            updateOpeningTimes(currentInstitution.openinghours);
+        } else {
+            updateOpeningTimes(currentInstitution.Öffnungszeiten);
         }
     }
 

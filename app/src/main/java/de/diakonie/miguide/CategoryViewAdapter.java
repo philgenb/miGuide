@@ -42,6 +42,7 @@ public class CategoryViewAdapter extends RecyclerView.Adapter<CategoryViewAdapte
 
                 Category category = CATEGORIES.get(position);
                 Intent intent = new Intent(context, InstitutionActivity.class);
+
                 intent.putExtra("categoryID", position);
                 context.startActivity(intent);
             }
@@ -50,6 +51,7 @@ public class CategoryViewAdapter extends RecyclerView.Adapter<CategoryViewAdapte
 
         return holder;
     }
+
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {

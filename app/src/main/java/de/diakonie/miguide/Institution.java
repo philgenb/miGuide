@@ -13,6 +13,7 @@ public class Institution {
     public String HausNR;
     public String Preis;
     public String Öffnungszeiten;
+    public String openinghours;
     public String BeschreibungD;
     public String BeschreibungE;
     public String BeschreibungA;
