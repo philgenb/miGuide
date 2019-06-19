@@ -3,6 +3,7 @@ package de.diakonie.miguide;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -23,6 +24,9 @@ public class LanguageSelectorActivity extends AppCompatActivity {
         registerToolBar();
 
         this.dm = new DataManager(this);
+
+        checkFirstStart(dm);
+
 
         if(dm.isValueSet("locale")) {
             // setLocale(dm.getStringValue("locale"));
@@ -74,6 +78,16 @@ public class LanguageSelectorActivity extends AppCompatActivity {
     private void openCategoryMenu() {
         Intent intent = new Intent(LanguageSelectorActivity.this, CategoryActivity.class);
         startActivity(intent);
+    }
+
+    private void checkFirstStart(DataManager dm) {
+        //dm.setfirstStart(false); //TESTING
+        if(!dm.wasAppStarted()) {
+            Log.i("FirstStart", "First Start detected... Loading AppSliderIntro");
+            Intent intent = new Intent(LanguageSelectorActivity.this, CleverIntro.class);
+            dm.setfirstStart(true);
+            startActivity(intent);
+        }
     }
 
     public void setLocale(String lang) {
