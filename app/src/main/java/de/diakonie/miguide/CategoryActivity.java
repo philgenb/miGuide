@@ -42,7 +42,7 @@ public class CategoryActivity extends AppCompatActivity {
         addCategory(R.string.Bekleidung, R.drawable.ic_bekleidung);
         addCategory(R.string.Freizeit, R.drawable.ic_freizeit);
         addCategory(R.string.Kind, R.drawable.ic_babykind);
-        addCategory(R.string.Möbel, R.drawable.ic_mobel);
+        //addCategory(R.string.Möbel, R.drawable.ic_mobel);
         addCategory(R.string.Haushalt, R.drawable.ic_haushalt);
         addCategory(R.string.Diverses, R.drawable.ic_diverses);
     }

@@ -14,7 +14,8 @@ public class CleverIntro extends AppIntro {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addSlide(AppIntroFragment.newInstance("Appeinführung", "Test", R.drawable.ic_arabic, Color.BLUE));
+
+        addSlide(AppIntroFragment.newInstance("", "", R.drawable.ic_01_appintro, Color.WHITE));
         addSlide(AppIntroFragment.newInstance("Kategorien", "Test", R.drawable.ic_missing_image, Color.YELLOW));
         addSlide(AppIntroFragment.newInstance("Institution", "Test", R.drawable.ic_bekleidung, Color.GREEN));
 

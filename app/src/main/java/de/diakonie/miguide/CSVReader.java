@@ -54,7 +54,7 @@ public class CSVReader {
     private static void readFile(Context context) {
         try {
 
-            InputStream input = context.getResources().openRawResource(R.raw.institutionen3005);
+            InputStream input = context.getResources().openRawResource(R.raw.institutionen010819);
             InputStreamReader inputreader = new InputStreamReader(input);
             BufferedReader bufferedReader = new BufferedReader(inputreader);
 

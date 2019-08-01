@@ -82,12 +82,14 @@ public class LanguageSelectorActivity extends AppCompatActivity {
 
     private void checkFirstStart(DataManager dm) {
         //dm.setfirstStart(false); //TESTING
+        /*
         if(!dm.wasAppStarted()) {
             Log.i("FirstStart", "First Start detected... Loading AppSliderIntro");
             Intent intent = new Intent(LanguageSelectorActivity.this, CleverIntro.class);
             dm.setfirstStart(true);
             startActivity(intent);
         }
+        */
     }
 
     public void setLocale(String lang) {
